@@ -1,25 +1,36 @@
 public class FizzBuzz
 {
-    public void CountTo(int lastNumber)
+    public void CountTo(int last)
     {
-        for (int currentNumber = 1; currentNumber <= lastNumber; currentNumber++)
+        for (int i = 1; i <= last; i++)
         {
-            if (currentNumber % 3 == 0 && currentNumber % 5 == 0)
+            if (ContainsChar(i, '7'))
+            {
+                Console.WriteLine("IzuBizu");
+                continue;
+            }
+            if (i % 5 == 0 && i % 3 == 0)
             {
                 Console.WriteLine("FizzBuzz");
                 continue;
             }
-            if (currentNumber % 3 == 0)
+            if (i % 3 == 0)
             {
                 Console.WriteLine("Fizz");
                 continue;
             }
-            if (currentNumber % 5 == 0)
+            if (i % 5 == 0)
             {
                 Console.WriteLine("Buzz");
                 continue;
             }
-            Console.WriteLine(currentNumber);
+            Console.WriteLine(i);
         }
+    }
+
+    private bool ContainsChar(int i, char c)
+    {
+        string s = i.ToString();
+        return s.Contains(c);
     }
 }
