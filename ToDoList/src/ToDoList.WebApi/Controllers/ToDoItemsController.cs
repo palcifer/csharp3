@@ -60,7 +60,19 @@ public class ToDoItemsController : ControllerBase
     }
 
     [HttpPut("{toDoItemId:int}")]
-    public IActionResult UpdateById(int toDoItemId, [FromBody] ToDoItemUpdateRequestDto request) => Ok();
+    public IActionResult UpdateById(int toDoItemId, [FromBody] ToDoItemUpdateRequestDto request)
+    {
+        try
+        {
+            return Ok(); //yeah
+        }
+        catch (System.Exception ex)
+        {
+
+            return this.Problem(ex.Message, null, StatusCodes.Status500InternalServerError);
+        }
+
+    }
 
     [HttpDelete("{toDoItemId:int}")]
     public IActionResult DeleteById(int toDoItemId) => Ok();
