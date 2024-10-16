@@ -44,36 +44,58 @@ public class ToDoItemsController : ControllerBase
     {
         try
         {
+            if (items == null)
+            {
+                return NotFound(); //404
+            }
             return Ok(items); //200
         }
         catch (Exception ex)
         {
             return this.Problem(ex.Message, null, StatusCodes.Status500InternalServerError);
         }
-
     }
 
     [HttpGet("{toDoItemId:int}")]
-    public IActionResult ReadById(int toDoItemId)
-    {
-        return Ok(items.Find(i => i.ToDoItemId == toDoItemId));
-    }
+    public IActionResult ReadById(int toDoItemId) => Ok(items.Find(i => i.ToDoItemId == toDoItemId)); //this is not really bulletproof, but it works :-) 
 
     [HttpPut("{toDoItemId:int}")]
     public IActionResult UpdateById(int toDoItemId, [FromBody] ToDoItemUpdateRequestDto request)
     {
         try
         {
-            return Ok(); //yeah
+            var item = items.Find(i => i.ToDoItemId == toDoItemId);
+            if (item != null)
+            {
+                item.Name = request.Name;
+                item.Description = request.Description;
+                item.IsCompleted = request.IsCompleted;
+                return Ok();
+            }
+            return NotFound();
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
-
-            return this.Problem(ex.Message, null, StatusCodes.Status500InternalServerError);
+            return Problem(ex.Message, null, StatusCodes.Status500InternalServerError);
         }
 
     }
 
     [HttpDelete("{toDoItemId:int}")]
-    public IActionResult DeleteById(int toDoItemId) => Ok();
+    public IActionResult DeleteById(int toDoItemId)
+    {
+        try
+        {
+            var item = items.Find(i => i.ToDoItemId == toDoItemId);
+            if (item == null)
+            {
+                return NotFound(); //404
+            }
+            return Ok(items.Remove(item)); //200
+        }
+        catch (System.Exception ex)
+        {
+            return this.Problem(ex.Message, null, StatusCodes.Status500InternalServerError);
+        }
+    }
 }
