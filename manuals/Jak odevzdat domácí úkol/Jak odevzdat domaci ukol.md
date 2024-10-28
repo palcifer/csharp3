@@ -30,13 +30,13 @@ Zvolíme možnost `Publish <name_of_the_branch> to Origin`. Tím budeme mít v n
 
 ## Vytvoření Pull Requestu
 
-Teď budeme commitovat do naší nové větve až do bodu, kdy budeme s naším zadánim natolik spokojeni, že by jsme tyhle změny chtěli mít i v mainu. Ale pozor! Namísto Merge do větve main si vytvoříme Pull Request. Ten dělá vesměs to stejný, zmeny se po schválení objeví ve větvi main, jenomže co je tady důležité je právě to schválení. To by měl provésť někdo jiný než autor změn: v reálné sspolečnosti to je většinou vlastník nebo architekt aplikace, tady je to spíše kouč.
+Teď budeme commitovat do naší nové větve až do bodu, kdy budeme s naším zadánim natolik spokojeni, že by jsme tyhle změny chtěli mít i v mainu. Ale pozor! Namísto Merge do větve main si vytvoříme Pull Request. Ten dělá vesměs to stejný, změny se po schválení objeví ve větvi main, jenomže co je tady důležité je právě to schválení. To by měl provésť někdo jiný než autor změn: v reálné společnosti to je většinou vlastník nebo architekt aplikace, tady je to spíše kouč.
 
-Poďme tedy na samotný PullRequest, vytvoříme ho pravým kliknutím na novo vytvořenou větev v záložce Branches.
+Poďme tedy na samotný Pull Request. Vytvoříme ho pravým kliknutím na novo vytvořenou větev v záložce Branches.
 
 ![alt text](Create_Pull_Request.png)
 
-A zvolíte si, do ktorého vzdáleného repozitáře (Remotes) chcete tenhle Pull Request zavést. Pokud si pravidelně aktualizujete šablonu, tak by ste tam měli mít váš repozitář a template. Zvolte váš repozitář. To by vás mělo okamžite přesměrovat do webového prohlížeče na otevření vašeho Pull Requestu.
+Zvolíte si, do ktorého vzdáleného repozitáře (Remotes) chcete tenhle Pull Request zavést. Pokud si pravidelně aktualizujete šablonu, tak by ste tam měli mít váš repozitář a template. Zvolte váš repozitář. To by vás mělo okamžite přesměrovat do webového prohlížeče na otevření vašeho Pull Requestu.
 
 ![alt text](Open.png)
 
